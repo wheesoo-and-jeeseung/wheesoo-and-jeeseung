@@ -67,17 +67,22 @@ export class Quiz extends Component<QuizProps, QuizState> {
 
     render() {
         let icon, message, buttons
+
+        const TitleIconSize = 64
+        const AnswerIconSize = 40
+        const messageColor = "gray"
+
         if (this.state.position >= this.shuffled.length) {
-            icon = <EmojiPeopleIcon sx={{fontSize: 40}} htmlColor="gray"/>
+            icon = <EmojiPeopleIcon sx={{fontSize: TitleIconSize}} htmlColor="gray"/>
             message = (
-                <Typography variant="h5" color="text.secondary" component="div">
+                <Typography variant="h5" color={messageColor} component="div">
                     모든 문제를 풀어 주셔서 감사합니다.
                 </Typography>
             )
         } else if (this.state.answer === undefined) {
-            icon = <QuizIcon sx={{fontSize: 40}} htmlColor="gray"/>
+            icon = <QuizIcon sx={{fontSize: TitleIconSize}} htmlColor="gray"/>
             message = (
-                <Typography variant="h5" color="text.secondary" component="div">
+                <Typography variant="h6" color={messageColor} component="div">
                     {this.shuffled[this.state.position].question}
                 </Typography>
             )
@@ -85,12 +90,12 @@ export class Quiz extends Component<QuizProps, QuizState> {
                 <React.Fragment>
                     <Grid item xs={6} textAlign="center">
                         <IconButton onClick={this.handlerAnswerYes}>
-                            <CheckIcon sx={{fontSize: 64}}/>
+                            <CheckIcon sx={{fontSize: AnswerIconSize}}/>
                         </IconButton>
                     </Grid>
                     <Grid item xs={6} textAlign="center">
                         <IconButton onClick={this.handlerAnswerNo}>
-                            <ClearIcon sx={{fontSize: 64}}/>
+                            <ClearIcon sx={{fontSize: AnswerIconSize}}/>
                         </IconButton>
                     </Grid>
                 </React.Fragment>
@@ -98,38 +103,40 @@ export class Quiz extends Component<QuizProps, QuizState> {
         } else {
             // 정답
             if (this.state.answer === this.shuffled[this.state.position].answer) {
-                icon = <ThumbUpIcon sx={{fontSize: 40}} htmlColor="gray"/>
+                icon = <ThumbUpIcon sx={{fontSize: TitleIconSize}} htmlColor="green"/>
             } else { // 오답
-                icon = <ThumbDownIcon sx={{fontSize: 40}} htmlColor="gray"/>
+                icon = <ThumbDownIcon sx={{fontSize: TitleIconSize}} htmlColor="red"/>
             }
             message = (
-                <Typography variant="h5" color="text.secondary" component="div">
+                <Typography variant="h5" color={messageColor} component="div">
                     {this.shuffled[this.state.position].commentary}
                 </Typography>
             )
             buttons = (
                 <Grid item xs={12} textAlign="center">
                     <IconButton onClick={this.handlerNextQuiz}>
-                        <ArrowForwardIcon sx={{fontSize: 64}}/>
+                        <ArrowForwardIcon sx={{fontSize: AnswerIconSize}}/>
                     </IconButton>
                 </Grid>
             )
         }
 
         return (
-            <Card sx={{flexGrow: 1}}>
-                <CardContent>
-                    <Grid container rowSpacing={2}>
-                        <Grid item xs={12} textAlign="center">
-                            {icon}
+            <>
+                <Card sx={{flexGrow: 1}}>
+                    <CardContent>
+                        <Grid container rowSpacing={8}>
+                            <Grid item xs={12} textAlign="center">
+                                {icon}
+                            </Grid>
+                            <Grid item xs={12} textAlign="center">
+                                {message}
+                            </Grid>
+                            {buttons}
                         </Grid>
-                        <Grid item xs={12} textAlign="center">
-                            {message}
-                        </Grid>
-                        {buttons}
-                    </Grid>
-                </CardContent>
-            </Card>
+                    </CardContent>
+                </Card>
+            </>
         )
     }
 }
