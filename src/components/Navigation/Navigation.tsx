@@ -5,10 +5,10 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 import MapIcon from '@mui/icons-material/Map';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 
-interface TabButtonProps {
+interface NavigationProps {
 }
 
-export const Navigation = ({}: TabButtonProps) => {
+export const Navigation = ({}: NavigationProps) => {
     const [value, setValue] = React.useState(0);
 
     return (
