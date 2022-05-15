@@ -68,21 +68,24 @@ export class Quiz extends Component<QuizProps, QuizState> {
     render() {
         let icon, message, buttons
 
-        const TitleIconSize = 64
-        const AnswerIconSize = 40
+        const TitleIconSize = 30
+        const AnswerIconSize = 30
         const messageColor = "gray"
 
         if (this.state.position >= this.shuffled.length) {
             icon = <EmojiPeopleIcon sx={{fontSize: TitleIconSize}} htmlColor="gray"/>
             message = (
-                <Typography variant="h5" color={messageColor} component="div">
-                    모든 문제를 풀어 주셔서 감사합니다.
-                </Typography>
+                <>
+                    <Typography color={messageColor} component="div">
+                        모든 문제를 풀어 주셔서 감사합니다.
+                    </Typography>
+                    <Typography fontSize={AnswerIconSize}>🙇‍♂️</Typography>
+                </>
             )
         } else if (this.state.answer === undefined) {
             icon = <QuizIcon sx={{fontSize: TitleIconSize}} htmlColor="gray"/>
             message = (
-                <Typography variant="h6" color={messageColor} component="div">
+                <Typography color={messageColor} component="div">
                     {this.shuffled[this.state.position].question}
                 </Typography>
             )
@@ -108,7 +111,7 @@ export class Quiz extends Component<QuizProps, QuizState> {
                 icon = <ThumbDownIcon sx={{fontSize: TitleIconSize}} htmlColor="red"/>
             }
             message = (
-                <Typography variant="h5" color={messageColor} component="div">
+                <Typography color={messageColor} component="div">
                     {this.shuffled[this.state.position].commentary}
                 </Typography>
             )
@@ -125,7 +128,10 @@ export class Quiz extends Component<QuizProps, QuizState> {
             <>
                 <Card sx={{flexGrow: 1}}>
                     <CardContent>
-                        <Grid container rowSpacing={8}>
+                        <Typography gutterBottom variant="h5" component="div" textAlign="center">
+                            Quiz
+                        </Typography>
+                        <Grid container rowSpacing={2}>
                             <Grid item xs={12} textAlign="center">
                                 {icon}
                             </Grid>

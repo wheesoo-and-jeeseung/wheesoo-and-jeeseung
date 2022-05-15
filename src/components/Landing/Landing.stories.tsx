@@ -1,13 +1,13 @@
 import {ComponentMeta, ComponentStory} from "@storybook/react";
-import {Landing} from "./Landing";
+import {Landing, LandingProps} from "./Landing";
 import React from "react";
 
 export default {
     component: Landing,
     title: 'Landing',
-} as ComponentMeta<typeof Landing>
+}
 
-const Template: ComponentStory<typeof Landing> = (args) => <Landing {...args}/>
+const Template = (props: LandingProps) => <Landing {...props}/>
 
 export const Default = Template.bind({});
-Default.args = {}
+// Default.props = {}

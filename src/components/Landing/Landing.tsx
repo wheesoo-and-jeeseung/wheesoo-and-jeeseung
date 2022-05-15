@@ -2,57 +2,68 @@ import {Component} from "react";
 import '@splidejs/react-splide/css';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
 import {Box, Container, Grid, Typography} from "@mui/material";
+import useWindowDimensions from "../../utils/utils";
 
-interface LandingProps {}
-interface LandingState {
-    items: LandingItem[]
-}
-
-interface LandingItem {
-    title: string
-    text: string
-}
+export interface LandingProps {}
+export interface LandingState {}
 
 const images: string[] = [
-    "images/carousel001.jpeg",
-    "images/carousel002.jpeg",
+    "images/carousel001.jpg",
+    "images/carousel002.jpg",
+    "images/carousel003.jpg",
+    "images/carousel004.jpg",
+    "images/carousel005.jpg",
+    "images/carousel006.jpg",
+    "images/carousel007.jpg",
+    "images/carousel008.jpg",
+    "images/carousel009.jpg",
+    "images/carousel010.jpg",
 ]
 
-export class Landing extends Component<LandingProps, LandingState> {
-    constructor(props: LandingProps) {
-        super(props);
-        this.state = {
-            items: [
-                { title: "Item 1", text: "hi"},
-            ]
-        }
-    }
+export const Landing = (props: LandingProps, state: LandingState) => {
+    const { height, width } = useWindowDimensions();
+    console.log(height, width)
+    return (
+        <Box>
+            <Splide
+                aria-label="My Favorite Images"
+                options={{
+                    type: "fade",
+                    rewind: true,
+                    // width: width,
+                    // height: height - 64,
+                    autoWidth: true,
+                    fixedHeight: 460,
+                    cover: true,
+                    arrows: false,
+                    paginationDirection: 'ttb',
+                    autoplay: true,
+                    drag: false,
+                }}
+            >
+                {images.map((url, idx) => (
+                    <SplideSlide key={idx}>
+                        <img src={url}/>
+                    </SplideSlide>
+                ))}
+            </Splide>
 
-    render() {
-        return (
-            <Box>
-                <Splide
-                    aria-label="My Favorite Images"
-                    options={{
-                        type: "fade",
-                        rewind: true,
-                        autoWidth: true,
-                        fixedHeight: 400,
-                        cover: true,
-                        arrows: false,
-                        paginationDirection: 'ttb',
-                        autoplay: true,
-                        drag: false,
-                    }}
-                >
-                    {images.map((url, idx) => (
-                        <SplideSlide key={idx}>
-                            <img src={url}/>
-                        </SplideSlide>
-                    ))}
-                </Splide>
-
-            </Box>
-        )
-    }
+        </Box>
+    )
 }
+
+// export class Landing extends Component<LandingProps, LandingState> {
+//     constructor(props: LandingProps) {
+//         super(props);
+//         this.state = {
+//             items: [
+//                 { title: "Item 1", text: "hi"},
+//             ]
+//         }
+//     }
+//
+//     render() {
+//
+//
+//     }
+// }
