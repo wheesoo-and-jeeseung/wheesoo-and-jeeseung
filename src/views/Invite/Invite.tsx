@@ -2,7 +2,7 @@ import {Component} from "react";
 import {Landing} from "../../components/Landing/Landing";
 import {LandingInfo} from "../../components/Landing/LandingInfo";
 import {History} from "../../components/History/History";
-import {Box, Grid, Typography} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 import {Quiz} from "../../components/Quiz/Quiz";
 
 interface InviteProps {}

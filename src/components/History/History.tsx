@@ -51,10 +51,10 @@ const histories: EventItem[] = [
     {date: "2011. 07. 19", title: "국토대장정 시작", description: "우리의 만남 국토 대장정"},
     {date: "2011. 08. 14", title: "사랑의 시작", description: "남산타워에서 출발!", icon: <FavoriteIcon sx={{ color: "red" }}/>},
     // {date: "2013. 10. 30", title: "위기 극복 탈출", description: "암흑기", icon: <SchoolIcon/>},
-    {date: "2014. 04. 24", title: "군입대 👮‍♂️", description: "빠이빠이"},
+    {date: "2014. 04. 24", title: "군입대 👮‍♂️", description: "잠시만 안녕"},
     // {date: "2016. 01. 23", title: "군전역 🫡", description: "오예"},
     // {date: "2018. 09. 01", title: "지승 가방끈 늘리기", description: "2등급 석사 노예"},
-    {date: "2021. 02. 18", title: "✈️ 휘수 미국행", description: "슬퍼.."},
+    {date: "2021. 02. 18", title: "✈️ 휘수 미국행", description: "잠시만 안녕 ver.2"},
     {date: "2022. 08. 20", title: "결혼식", description: "드디어 결혼에 골인", icon: <Typography>🎉</Typography>},
 ]
 

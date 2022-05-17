@@ -1,4 +1,4 @@
-import {Card, CardContent, Grid, Icon, IconButton, Typography} from "@mui/material";
+import {Card, CardContent, Grid, IconButton, Typography} from "@mui/material";
 import React, {Component} from "react";
 import QuizIcon from '@mui/icons-material/Quiz';
 import CheckIcon from '@mui/icons-material/Check';

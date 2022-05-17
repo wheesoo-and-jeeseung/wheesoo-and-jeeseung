@@ -11,18 +11,16 @@ const images: string[] = [
     "images/carousel001.jpg",
     "images/carousel002.jpg",
     "images/carousel003.jpg",
-    "images/carousel004.jpg",
     "images/carousel005.jpg",
     "images/carousel006.jpg",
     "images/carousel007.jpg",
     "images/carousel008.jpg",
     "images/carousel009.jpg",
     "images/carousel010.jpg",
+    "images/carousel011.jpg",
 ]
 
 export const Landing = (props: LandingProps, state: LandingState) => {
-    const { height, width } = useWindowDimensions();
-    console.log(height, width)
     return (
         <Box>
             <Splide
