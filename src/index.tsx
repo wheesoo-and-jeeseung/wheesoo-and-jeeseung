@@ -6,7 +6,7 @@ import {Navigation} from "./components/Navigation/Navigation";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Invite} from "./views/Invite/Invite";
 import {Map} from "./views/Map/Map";
-import {Celebration} from "./views/Celebration/Celebration";
+import {Contact} from "./views/Contact/Contact";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +17,7 @@ root.render(
             <Routes>
                 <Route path="/" element={<Invite/>} />
                 <Route path="/map" element={<Map/>} />
-                <Route path="/celebration" element={<Celebration/>} />
+                <Route path="/celebration" element={<Contact/>} />
             </Routes>
             <Navigation/>
         </BrowserRouter>

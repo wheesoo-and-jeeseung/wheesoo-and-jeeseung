@@ -1,11 +1,8 @@
-import {Component} from "react";
 import '@splidejs/react-splide/css';
 import {Splide, SplideSlide} from "@splidejs/react-splide";
-import {Box, Container, Grid, Typography} from "@mui/material";
-import useWindowDimensions from "../../utils/utils";
+import {Box} from "@mui/material";
 
 export interface LandingProps {}
-export interface LandingState {}
 
 const images: string[] = [
     "images/carousel001.jpg",
@@ -20,7 +17,11 @@ const images: string[] = [
     "images/carousel011.jpg",
 ]
 
-export const Landing = (props: LandingProps, state: LandingState) => {
+export const Landing = () => {
+    const shuffledImages = images
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
     return (
         <Box>
             <Splide
@@ -28,8 +29,6 @@ export const Landing = (props: LandingProps, state: LandingState) => {
                 options={{
                     type: "fade",
                     rewind: true,
-                    // width: width,
-                    // height: height - 64,
                     autoWidth: true,
                     fixedHeight: 460,
                     cover: true,
@@ -39,29 +38,12 @@ export const Landing = (props: LandingProps, state: LandingState) => {
                     drag: false,
                 }}
             >
-                {images.map((url, idx) => (
+                {shuffledImages.map((url, idx) => (
                     <SplideSlide key={idx}>
                         <img src={url}/>
                     </SplideSlide>
                 ))}
             </Splide>
-
         </Box>
     )
 }
-
-// export class Landing extends Component<LandingProps, LandingState> {
-//     constructor(props: LandingProps) {
-//         super(props);
-//         this.state = {
-//             items: [
-//                 { title: "Item 1", text: "hi"},
-//             ]
-//         }
-//     }
-//
-//     render() {
-//
-//
-//     }
-// }

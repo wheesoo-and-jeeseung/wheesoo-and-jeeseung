@@ -7,8 +7,8 @@ export class Map extends Component<any, any> {
     render() {
         return (
             <Box>
-                {/*<Direction/>*/}
                 <DynamicMap/>
+                <Direction/>
             </Box>
         );
     }

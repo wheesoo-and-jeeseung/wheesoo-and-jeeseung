@@ -1,8 +1,20 @@
 import React, { useEffect } from "react";
 import useWindowDimensions from "../../utils/utils";
 import {renderToString} from "react-dom/server";
-import {Avatar, Box, Button, Divider, Grid, Icon, Stack, Typography} from "@mui/material";
+import {
+    Avatar,
+    Box,
+    Button, CardContent,
+    Divider,
+    Grid,
+    Icon, SpeedDial,
+    SpeedDialAction,
+    SpeedDialIcon,
+    Stack,
+    Typography
+} from "@mui/material";
 import {Link} from "react-router-dom";
+import MapIcon from "@mui/icons-material/Map";
 
 export const DynamicMap = () => {
     const { height, width } = useWindowDimensions();
@@ -27,7 +39,7 @@ export const DynamicMap = () => {
             })
 
             const contents = renderToString((
-                <>
+                <CardContent>
                     <Stack
                         direction="row"
                         spacing={2}
@@ -36,8 +48,8 @@ export const DynamicMap = () => {
                         <Icon component="a" href={`kakaomap://route?ep=${lat},${lng}`}><img src="images/icon_kakaomap.png"/></Icon>&nbsp;&nbsp;&nbsp;&nbsp;
                         <Icon component="a" href={`tmap://route?goalname=교수회관&goaly=${lat}&goalx=${lng}`}><img src="images/icon_tmap.png"/></Icon>
                     </Stack>
-                    <Typography>서울시 관악구 관악로1 서울대학교 교수회관(65동)</Typography>
-                </>
+                    <Typography variant="body2">서울시 관악구 관악로1 서울대학교 교수회관(65동)</Typography>
+                </CardContent>
             ))
             const infowindow = new naver.maps.InfoWindow({
                 content: contents
@@ -49,10 +61,12 @@ export const DynamicMap = () => {
 
     const mapStyle = {
         width: width,
-        height: height - 64,
+        height: height - 64 - 268,
     }
 
     return (
-        <div id="map" style={mapStyle}></div>
+        <>
+            <div id="map" style={mapStyle}></div>
+        </>
     )
 }
