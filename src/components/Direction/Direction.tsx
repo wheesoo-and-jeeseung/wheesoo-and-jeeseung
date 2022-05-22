@@ -1,14 +1,10 @@
 import React from "react";
 import {
-    Box, Card, CardContent, List, ListItem,
-    SpeedDial,
-    SpeedDialAction,
-    SpeedDialIcon,
+    CardContent, List, ListItem,
     ToggleButton,
     ToggleButtonGroup,
     Typography
 } from "@mui/material";
-import MapIcon from '@mui/icons-material/Map';
 
 export const Direction = () => {
     const [transportation, setTransportation] = React.useState('public');

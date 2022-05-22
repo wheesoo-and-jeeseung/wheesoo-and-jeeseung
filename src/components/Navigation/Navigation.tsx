@@ -6,9 +6,7 @@ import MapIcon from '@mui/icons-material/Map';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import {Link} from "react-router-dom";
 
-interface NavigationProps {}
-
-export const Navigation = ({}: NavigationProps) => {
+export const Navigation = () => {
     const [value, setValue] = React.useState(0);
 
     return (

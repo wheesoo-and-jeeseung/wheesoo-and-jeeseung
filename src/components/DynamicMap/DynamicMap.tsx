@@ -2,19 +2,11 @@ import React, { useEffect } from "react";
 import useWindowDimensions from "../../utils/utils";
 import {renderToString} from "react-dom/server";
 import {
-    Avatar,
-    Box,
-    Button, CardContent,
-    Divider,
-    Grid,
-    Icon, SpeedDial,
-    SpeedDialAction,
-    SpeedDialIcon,
+    CardContent,
+    Icon,
     Stack,
     Typography
 } from "@mui/material";
-import {Link} from "react-router-dom";
-import MapIcon from "@mui/icons-material/Map";
 
 export const DynamicMap = () => {
     const { height, width } = useWindowDimensions();
@@ -44,9 +36,9 @@ export const DynamicMap = () => {
                         direction="row"
                         spacing={2}
                     >
-                        <Icon component="a" href={`nmap://route?dlat=${lat}&dlng=${lng}&dname=교수회관`}><img src="images/icon_navermap.png"/></Icon>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Icon component="a" href={`kakaomap://route?ep=${lat},${lng}`}><img src="images/icon_kakaomap.png"/></Icon>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Icon component="a" href={`tmap://route?goalname=교수회관&goaly=${lat}&goalx=${lng}`}><img src="images/icon_tmap.png"/></Icon>
+                        <Icon component="a" href={`nmap://route?dlat=${lat}&dlng=${lng}&dname=교수회관`}><img alt="" src="images/icon_navermap.png"/></Icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Icon component="a" href={`kakaomap://route?ep=${lat},${lng}`}><img alt="" src="images/icon_kakaomap.png"/></Icon>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Icon component="a" href={`tmap://route?goalname=교수회관&goaly=${lat}&goalx=${lng}`}><img alt="" src="images/icon_tmap.png"/></Icon>
                     </Stack>
                     <Typography variant="body2">서울시 관악구 관악로1 서울대학교 교수회관(65동)</Typography>
                 </CardContent>

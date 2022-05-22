@@ -40,7 +40,7 @@ export const Landing = () => {
             >
                 {shuffledImages.map((url, idx) => (
                     <SplideSlide key={idx}>
-                        <img src={url}/>
+                        <img alt="" src={url}/>
                     </SplideSlide>
                 ))}
             </Splide>

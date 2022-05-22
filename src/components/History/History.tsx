@@ -11,9 +11,6 @@ import {
 } from "@mui/lab";
 import {Typography} from "@mui/material";
 
-interface HistoryProps {}
-interface HistoryState {}
-
 interface EventItem {
     date: string
     title: string
@@ -28,7 +25,7 @@ const Event = (idx: number, event: EventItem) => {
                 sx={{ m: 'auto 0' }}
                 variant="body2"
                 color="text.secondary"
-                align={idx % 2 == 0 ? "left" : "right"}
+                align={idx % 2 === 0 ? "left" : "right"}
             >
                 {event.date}
             </TimelineOppositeContent>
