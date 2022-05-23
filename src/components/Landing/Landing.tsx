@@ -32,10 +32,10 @@ export const Landing = () => {
                     autoWidth: true,
                     fixedHeight: 460,
                     cover: true,
-                    arrows: false,
-                    paginationDirection: 'ttb',
+                    arrows: true,
+                    paginationDirection: 'rtl',
                     autoplay: true,
-                    drag: false,
+                    drag: true,
                 }}
             >
                 {shuffledImages.map((url, idx) => (

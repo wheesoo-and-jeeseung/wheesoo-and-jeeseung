@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {ContactItemList} from "../../components/Contact/ContactItemList";
 import {Box, CardContent, Stack, Typography} from "@mui/material";
+import {Visitor} from "../../components/Visitor/Visitor";
 
 export class Contact extends Component<any, any> {
     render() {
@@ -19,6 +20,9 @@ export class Contact extends Component<any, any> {
                     <CardContent>
                         <ContactItemList/>
                     </CardContent>
+                </Box>
+                <Box>
+                    <Visitor/>
                 </Box>
             </>
         );

@@ -7,6 +7,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Invite} from "./views/Invite/Invite";
 import {Map} from "./views/Map/Map";
 import {Contact} from "./views/Contact/Contact";
+import { analytics } from "./common/firebase";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
