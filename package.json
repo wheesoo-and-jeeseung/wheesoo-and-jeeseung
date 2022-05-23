@@ -29,6 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && rm -rf docs && mv build docs",
+    "postbuild": "cp docs/index.html docs/404.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d docs",
     "test": "react-scripts test",
