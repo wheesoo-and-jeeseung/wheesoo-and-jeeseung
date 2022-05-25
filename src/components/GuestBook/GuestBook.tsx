@@ -76,7 +76,7 @@ export const GuestBook = () => {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>이름</TableCell>
+                            <TableCell sx={{minWidth: "80px"}}>이름</TableCell>
                             <TableCell>메세지</TableCell>
                         </TableRow>
                     </TableHead>
