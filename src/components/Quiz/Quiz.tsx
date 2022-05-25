@@ -8,6 +8,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import {addQuizResult} from "../../common/repository";
+import {Link, useNavigate} from "react-router-dom";
 
 interface QA {
     id: number
@@ -42,6 +43,8 @@ const shuffled = collection
     .map(({ value }) => value)
 
 export const Quiz = () => {
+    const navigate = useNavigate();
+    const [clickCnt, setClickCnt] = React.useState(0)
     const [correct, setCorrect] = React.useState<boolean | undefined>(undefined)
     const [position, setPosition] = React.useState(0)
     const [score, setScore] = React.useState(0)
@@ -123,7 +126,14 @@ export const Quiz = () => {
         <>
             <Card sx={{flexGrow: 1}}>
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="div" textAlign="center">
+                    <Typography gutterBottom variant="h6" component="div" textAlign="center" onClick={() => {
+                        if (clickCnt >= 10) {
+                            setClickCnt(0)
+                            navigate('/statistics')
+                        } else {
+                            setClickCnt(clickCnt + 1)
+                        }
+                    }}>
                         🤵‍♂️신랑 | 신부 👰‍♀️퀴즈 타임!
                     </Typography>
                     <br/>

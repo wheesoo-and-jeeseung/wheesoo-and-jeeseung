@@ -9,6 +9,7 @@ import {Map} from "./views/Map/Map";
 import {Contact} from "./views/Contact/Contact";
 import { analytics } from "./common/firebase";
 import { QueryClient, QueryClientProvider }from 'react-query'
+import {Statistics} from "./views/Statistics/Statistics";
 
 
 const queryClient = new QueryClient()
@@ -23,6 +24,7 @@ root.render(
                 <Route path="/" element={<Invite/>} />
                 <Route path="/map" element={<Map/>} />
                 <Route path="/celebration" element={<Contact/>} />
+                <Route path="/statistics" element={<Statistics/>} />
             </Routes>
             <Navigation/>
         </BrowserRouter>
