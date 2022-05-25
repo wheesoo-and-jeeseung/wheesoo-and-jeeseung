@@ -22,5 +22,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-modules-
       - if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm run install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
       - run: npm run deploy
