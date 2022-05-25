@@ -1,6 +1,7 @@
 import { db } from "./firebase";
-import { doc, setDoc, getDocs, getDoc, addDoc, collection }from "firebase/firestore";
+import { doc, setDoc, getDocs, startAfter, query, orderBy, limit, collection, Query, DocumentSnapshot }from "firebase/firestore";
 import { currentUser } from "./user";
+import {useQuery} from "react-query";
 
 const GUESTBOOK_COLLECTION = "guestbook"
 const QUIZ_COLLECTION = "quiz"
@@ -14,13 +15,17 @@ export const addGuestBook = (name: string, message: string) => {
         name: name,
         message: message,
         timestamp: new Date(),
-    }).then((v) => {
+    }, {}).then((v) => {
         console.log(v)
     })
 }
 
-export const listGuestBook = () => {
-    const guestBookRef = doc(guestBookCol, currentUser)
+export const useListGuestBook = () => {
+    const q = query(guestBookCol, orderBy("timestamp"), limit(5))
+    return useQuery(
+        ["guestbooks"],
+        () => getDocs(q)
+    )
 }
 
 export const addQuizResult = (questionId: number, question: string, correct: boolean) => {

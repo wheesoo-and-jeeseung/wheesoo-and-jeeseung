@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import React from "react";
 
-export const ContactItemList = () => {
+export const ContactList = () => {
     const jsh: ContactItemProps = {
         relation: "신랑",
         name: "한지승",
@@ -105,7 +105,7 @@ const ContactItem = (props: ContactItemProps) => {
         </React.Fragment>
     );
     return (
-        <Box display="inline-flex" sx={{width: "100%"}}>
+        <Grid container display="inline-flex" sx={{width: "100%"}} alignItems="center" justifyContent="space-between">
             <Snackbar
                 open={open}
                 autoHideDuration={5000}
@@ -115,15 +115,15 @@ const ContactItem = (props: ContactItemProps) => {
                 anchorOrigin={{vertical: "top", horizontal: "center"}}
                 key="clipboard"
             />
-            <Box sx={{width: "100%"}}>
+            <Grid item>
                 <Typography variant="body2">{props.relation}</Typography>
                 <Typography variant="h6">{props.name}</Typography>
-            </Box>
-            <Grid sx={{width: "100%"}} alignItems="center" justifyContent="center">
+            </Grid>
+            <Grid item>
                 <Button href={"tel://"+props.phone} startIcon={<PhoneAndroidIcon/>}>전화</Button>
                 <Button href={"sms://"+props.phone} startIcon={<SmsIcon/>}>문자</Button>
                 <Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>송금</Button>
             </Grid>
-        </Box>
+        </Grid>
     )
 }

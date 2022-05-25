@@ -1,9 +1,9 @@
-import {ContactItemList} from "./ContactItemList";
+import {ContactList} from "./ContactList";
 
 export default {
-    component: ContactItemList,
+    component: ContactList,
     title: "Contact",
 }
 
-const Template = () => <ContactItemList/>
+const Template = () => <ContactList/>
 export const Default = Template.bind({})

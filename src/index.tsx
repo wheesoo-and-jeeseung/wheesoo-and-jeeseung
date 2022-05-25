@@ -8,12 +8,16 @@ import {Invite} from "./views/Invite/Invite";
 import {Map} from "./views/Map/Map";
 import {Contact} from "./views/Contact/Contact";
 import { analytics } from "./common/firebase";
+import { QueryClient, QueryClientProvider }from 'react-query'
 
+
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route path="/" element={<Invite/>} />
@@ -22,6 +26,7 @@ root.render(
             </Routes>
             <Navigation/>
         </BrowserRouter>
+        </QueryClientProvider>
     </React.StrictMode>
 );
 

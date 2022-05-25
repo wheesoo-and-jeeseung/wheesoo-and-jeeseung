@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import {ContactItemList} from "../../components/Contact/ContactItemList";
+import {ContactList} from "../../components/Contact/ContactList";
 import {Box, CardContent, Stack, Typography} from "@mui/material";
-import {Visitor} from "../../components/Visitor/Visitor";
+import {VisitorInput} from "../../components/Visitor/VisitorInput";
+import {VisitorList} from "../../components/Visitor/VisitorList";
 
 export class Contact extends Component<any, any> {
     render() {
@@ -18,11 +19,15 @@ export class Contact extends Component<any, any> {
                 </Box>
                 <Box>
                     <CardContent>
-                        <ContactItemList/>
+                        <ContactList/>
                     </CardContent>
                 </Box>
                 <Box>
-                    <Visitor/>
+                    <CardContent>
+                        <VisitorInput/>
+                        <br/>
+                        <VisitorList/>
+                    </CardContent>
                 </Box>
             </>
         );
