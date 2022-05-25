@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {ContactList} from "../../components/Contact/ContactList";
 import {Box, CardContent, Stack, Typography} from "@mui/material";
-import {VisitorInput} from "../../components/Visitor/VisitorInput";
-import {VisitorList} from "../../components/Visitor/VisitorList";
+import {GuestBook} from "../../components/GuestBook/GuestBook";
 
 export class Contact extends Component<any, any> {
     render() {
@@ -24,9 +23,7 @@ export class Contact extends Component<any, any> {
                 </Box>
                 <Box>
                     <CardContent>
-                        <VisitorInput/>
-                        <br/>
-                        <VisitorList/>
+                        <GuestBook/>
                     </CardContent>
                 </Box>
             </>
