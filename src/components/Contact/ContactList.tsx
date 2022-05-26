@@ -122,7 +122,7 @@ const ContactItem = (props: ContactItemProps) => {
             <Grid item>
                 <Button href={"tel://"+props.phone} startIcon={<PhoneAndroidIcon/>}>전화</Button>
                 <Button href={"sms://"+props.phone} startIcon={<SmsIcon/>}>문자</Button>
-                <Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>송금</Button>
+                <Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>계좌</Button>
             </Grid>
         </Grid>
     )

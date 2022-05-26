@@ -1,14 +1,14 @@
 import {Card, CardContent, Grid, IconButton, Typography} from "@mui/material";
 import React from "react";
 import QuizIcon from '@mui/icons-material/Quiz';
-import CheckIcon from '@mui/icons-material/Check';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import ClearIcon from '@mui/icons-material/Clear';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import {addQuizResult} from "../../common/repository";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 interface QA {
     id: number
@@ -91,7 +91,7 @@ export const Quiz = () => {
             <React.Fragment>
                 <Grid item xs={6} textAlign="center">
                     <IconButton onClick={() => handlerAnswer(true)}>
-                        <CheckIcon sx={{fontSize: AnswerIconSize}}/>
+                        <CircleOutlinedIcon sx={{fontSize: AnswerIconSize}}/>
                     </IconButton>
                 </Grid>
                 <Grid item xs={6} textAlign="center">
@@ -134,7 +134,7 @@ export const Quiz = () => {
                             setClickCnt(clickCnt + 1)
                         }
                     }}>
-                        🤵‍♂️신랑 | 신부 👰‍♀️퀴즈 타임!
+                        👰‍♀️ 신부 | 신랑 🤵‍♂️ 퀴즈 타임!
                     </Typography>
                     <br/>
                     <Grid container rowSpacing={2}>
