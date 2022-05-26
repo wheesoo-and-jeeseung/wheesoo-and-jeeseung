@@ -21,7 +21,7 @@ export const addGuestBook = (name: string, message: string) => {
 }
 
 export const useListGuestBook = () => {
-    const q = query(guestBookCol, orderBy("timestamp", "desc"), limit(5))
+    const q = query(guestBookCol, orderBy("timestamp", "desc"))
     return useQuery(
         ["guestbooks"],
         () => getDocs(q)
