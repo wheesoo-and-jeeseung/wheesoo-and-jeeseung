@@ -4,10 +4,24 @@ import {AppBar, BottomNavigation, BottomNavigationAction} from "@mui/material";
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import MapIcon from '@mui/icons-material/Map';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+
+const getNavigationId = (pathname: string): number => {
+    switch (pathname) {
+        case "/":
+            return 0
+        case "/map":
+            return 1
+        case "/celebration":
+            return 2
+        default:
+            return 0
+    }
+}
 
 export const Navigation = () => {
-    const [value, setValue] = React.useState(0);
+    const location = useLocation();
+    const [value, setValue] = React.useState(getNavigationId(location.pathname));
 
     return (
         <AppBar position="fixed" style={{top:"auto", bottom: 0}}>
@@ -16,6 +30,7 @@ export const Navigation = () => {
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
+                    console.log(newValue)
                 }}
             >
                 <BottomNavigationAction
