@@ -26,7 +26,7 @@ export const GuestBook = () => {
     const rows = isLoading ? (
         <TableRow><TableCell>불러오는 중...</TableCell></TableRow>
     ) : (
-        items?.docs.map(v => (
+        items?.docs.slice(5*page, 5*(page+1)).map(v => (
                 <TableRow key={v.id}>
                     <TableCell>{v.get("name")}</TableCell>
                     <TableCell>{v.get("message")}</TableCell>
