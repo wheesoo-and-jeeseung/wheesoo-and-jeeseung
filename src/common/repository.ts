@@ -1,5 +1,5 @@
 import { db } from "./firebase";
-import { doc, setDoc, getDocs, startAfter, query, orderBy, limit, collection, Query, DocumentSnapshot }from "firebase/firestore";
+import { doc, setDoc, getDocs, startAfter, query, orderBy, limit, collection, Query, DocumentSnapshot, where }from "firebase/firestore";
 import { currentUser } from "./user";
 import {useQuery} from "react-query";
 
@@ -38,4 +38,20 @@ export const addQuizResult = (questionId: number, question: string, correct: boo
     }).then(v => {
         console.log(v)
     })
+}
+
+export const useQuizParticipants = (questionId: number) => {
+    const q = query(collection(db, QUIZ_COLLECTION, questionId.toString(), "users"))
+    return useQuery(
+        ["quizParticipants", questionId.toString()],
+        () => getDocs(q).then(res => res.size)
+    )
+}
+
+export const useQuizCorrects = (questionId: number) => {
+    const q = query(collection(db, QUIZ_COLLECTION, questionId.toString(), "users"), where("correct", "==", true))
+    return useQuery(
+        ["quizCorrects", questionId.toString()],
+        () => getDocs(q).then(res => res.size)
+    )
 }

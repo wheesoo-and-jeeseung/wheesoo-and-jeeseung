@@ -17,7 +17,7 @@ interface QA {
     commentary: string
 }
 
-const collection: QA[] = [
+export const collection: QA[] = [
     {id: 1, question:"결혼식날 기준으로 사귄지 4000일이 넘었다.", answer: true, commentary: "8월 20일 기준으로 4025일만에 결혼합니다."},
     {id: 2, question:"처음으로 손을 잡은 날은 국토대장정 중이었다.", answer: false, commentary: "처음으로 사귀기로 한 남산타워에서 손을 처음 잡았습니다."},
     {id: 3, question: "둘이 가장 좋아하는 공통음식은 라면이다", answer: false, commentary: "둘은 데이트를 하면서 마라샹궈를 제일 많이먹고 좋아합니다. 같이먹으러가요"},
