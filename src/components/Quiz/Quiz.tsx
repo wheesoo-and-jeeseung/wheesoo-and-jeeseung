@@ -74,7 +74,7 @@ export const Quiz = () => {
             <>
                 <Typography></Typography>
                 <Typography color={messageColor} component="div">
-                    저희에 대해서 {Math.ceil(score / shuffled.length * 100)}% 만큼 알고 계시군요!<br/>
+                    저희에 대해서 {Math.ceil(score / shuffled.length * 100)}점 만큼 알고 계시군요!<br/>
                     모든 문제를 풀어 주셔서 감사합니다.
                 </Typography>
                 <Typography fontSize={AnswerIconSize}>🙇‍♂️</Typography>
