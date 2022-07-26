@@ -105,25 +105,29 @@ const ContactItem = (props: ContactItemProps) => {
         </React.Fragment>
     );
     return (
-        <Grid container display="inline-flex" sx={{width: "100%"}} alignItems="center" justifyContent="space-between">
-            <Snackbar
-                open={open}
-                autoHideDuration={5000}
-                onClose={handleClose}
-                message={props.name + "님의 계좌번호가 클립보드에 복사되었습니다."}
-                action={action}
-                anchorOrigin={{vertical: "top", horizontal: "center"}}
-                key="clipboard"
-            />
-            <Grid item>
-                <Typography variant="body2">{props.relation}</Typography>
-                <Typography variant="h6">{props.name}</Typography>
+        <>
+            <Grid container display="inline-flex" sx={{width: "100%"}} alignItems="center" justifyContent="space-between">
+                <Snackbar
+                    open={open}
+                    autoHideDuration={5000}
+                    onClose={handleClose}
+                    message={props.name + "님의 계좌번호가 클립보드에 복사되었습니다."}
+                    action={action}
+                    anchorOrigin={{vertical: "top", horizontal: "center"}}
+                    key="clipboard"
+                />
+                <Grid item>
+                    <Typography variant="body2">{props.relation}</Typography>
+                    <Typography variant="h6">{props.name}</Typography>
+                </Grid>
+                <Grid item sx={{width: "200px"}}>
+                    <Button href={"tel://"+props.phone} startIcon={<PhoneAndroidIcon/>}>전화</Button>
+                    <Button href={"sms://"+props.phone} startIcon={<SmsIcon/>}>문자</Button>
+                    <br/>
+                    {/*<Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>계좌</Button>*/}
+                    <Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>{props.account}</Button>
+                </Grid>
             </Grid>
-            <Grid item>
-                <Button href={"tel://"+props.phone} startIcon={<PhoneAndroidIcon/>}>전화</Button>
-                <Button href={"sms://"+props.phone} startIcon={<SmsIcon/>}>문자</Button>
-                <Button onClick={copyClipboard} startIcon={<MonetizationOnIcon/>}>계좌</Button>
-            </Grid>
-        </Grid>
+        </>
     )
 }
