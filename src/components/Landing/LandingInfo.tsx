@@ -10,7 +10,7 @@ export class LandingInfo extends Component<LandingInfoProps, LandingInfoState> {
         const today = new Date()
         const diff = date.getTime() - today.getTime()
         const remain = Math.ceil(diff / (1000 * 60 * 60 * 24))
-        const dday = remain > 0 ? `D-${remain}` : 'Today'
+        const dday = remain > 59400000 ? `D-${remain}` : 'Today'
 
         const welcomeMessage = [
             "오셔서 함께 축하해주세요~!",
